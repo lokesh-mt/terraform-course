@@ -1,5 +1,5 @@
 variable "AWS_REGION" {
-  default = "eu-west-1"
+  default = "us-east-1"
 }
 variable "PATH_TO_PRIVATE_KEY" {
   default = "mykey"
@@ -13,9 +13,9 @@ variable "ECS_INSTANCE_TYPE" {
 variable "ECS_AMIS" {
   type = "map"
   default = {
-    us-east-1 = "ami-1924770e"
-    us-west-2 = "ami-56ed4936"
-    eu-west-1 = "ami-c8337dbb"
+    us-east-1 = "ami-275ffe31"
+    us-west-2 = "ami-62d35c02"
+    us-east-1 = "ami-275ffe31"
   }
 }
 # Full List: http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html
@@ -23,9 +23,9 @@ variable "ECS_AMIS" {
 variable "AMIS" {
   type = "map"
   default = {
-    us-east-1 = "ami-13be557e"
-    us-west-2 = "ami-06b94666"
-    eu-west-1 = "ami-844e0bf7"
+    us-east-1 = "ami-20631a36" 
+    us-west-2 = "ami-45224425"
+    us-east-2 = "ami-a5b196c0"
   }
 }
 variable "INSTANCE_DEVICE_NAME" {

@@ -1,0 +1,2 @@
+  associate_public_ip_address = true
+  public_ip = 52.71.14.188
