@@ -1,0 +1,30 @@
+curl -X POST \
+		--data "<jenkins><install plugin='job-dsl@latest' /></jenkins>" \
+		--header 'Content-Type: text/xml' \
+		http://localhost:8080/pluginManager/installNecessaryPlugins
+
+		
+		curl -X POST -d "<jenkins><install plugin=\"job-dsl@1.63\" /></jenkins>" --header "Content-Type: text/xml" http://localhost:8080/pluginManager/installNecessaryPlugins
+		
+		
+wget -q --auth-no-challenge --user USERNAME --password PASSWORD --output-document - \
+'JENKINS_URL/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)'
+
+
+wget -q --auth-no-challenge --user admin --password admin --output-document - \
+'localhost:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)'
+
+
+wget http://<jenkins>/pluginManager/api/xml?depth=1&xpath=/*/*/shortName|/*/*/version&wrapper=plugins
+
+
+
+eaffac1d3507b863df1ccb7fc8edb309
+
+
+curl -X POST -H "$CRUMB" "http://USER:TOKEN@localhost:8080/createItem?name=NewJob"
+
+
+CRUMB=$(curl -s 'http://admin:admin@localhost:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
+
+curl -X POST -H "$CRUMB" -d "<jenkins><install plugin=\"job-dsl@1.63\" /></jenkins>"  http://admin:admin@localhost:8080/pluginManager/installNecessaryPlugins

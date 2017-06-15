@@ -111,3 +111,26 @@ resource "aws_iam_policy_attachment" "ecs-service-attach1" {
     policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole"
 }
 
+# jenkins ec2 role
+resource "aws_iam_role" "jenkins-ec2-iam-role" {
+    name = "jenkins-ec2-iam-role"
+    assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+EOF
+}
+resource "aws_iam_instance_profile" "jenkins-iam-instance-profile" {
+    name = "jenkins-iam-instance-profile"
+    roles = ["${aws_iam_role.jenkins-ec2-iam-role.name}"]
+}
+

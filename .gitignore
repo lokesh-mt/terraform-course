@@ -3,3 +3,6 @@
 */terraform.tfstate.backup
 */.terraform
 */mykey*
+*/configureAWSCredentials.sh
+*/jenkins
+*/jenkinsJob.groovy
