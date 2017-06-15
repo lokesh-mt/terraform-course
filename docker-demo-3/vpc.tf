@@ -1,6 +1,7 @@
 # Internet VPC
 resource "aws_vpc" "main" {
-    cidr_block = "10.0.0.0/16"
+    count = 0
+    cidr_block = "10.0.0.'${count.index + 1}'/16"
     tags {
         Name = "main"
     }
@@ -103,3 +104,5 @@ resource "aws_route_table_association" "main-public-3-a" {
     subnet_id = "${aws_subnet.main-public-3.id}"
     route_table_id = "${aws_route_table.main-public.id}"
 }
+
+
