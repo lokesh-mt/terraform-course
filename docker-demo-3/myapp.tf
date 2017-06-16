@@ -1,5 +1,3 @@
-# app
-
 data "template_file" "myapp-task-definition-template" {
   template               = "${file("templates/app.json.tpl")}"
   vars {
@@ -24,7 +22,7 @@ resource "aws_ecs_service" "myapp-service" {
 
   load_balancer {
     elb_name = "${aws_elb.myapp-elb.name}"
-    container_name = "app"
+    container_name = "myapp"
     container_port = 3000
   }
   lifecycle { ignore_changes = ["task_definition"] }
@@ -61,4 +59,3 @@ resource "aws_elb" "myapp-elb" {
     Name = "myapp-elb"
   }
 }
-

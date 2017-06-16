@@ -2,7 +2,7 @@
   {
     "essential": true,
     "memory": 256,
-    "name": "app",
+    "name": "myapp",
     "cpu": 256,
     "image": "${REPOSITORY_URL}:${APP_VERSION}",
     "workingDirectory": "/app",
@@ -15,4 +15,3 @@
     ]
   }
 ]
-
