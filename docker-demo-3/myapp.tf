@@ -24,7 +24,7 @@ resource "aws_ecs_service" "myapp-service" {
 
   load_balancer {
     elb_name = "${aws_elb.myapp-elb.name}"
-    container_name = "myapp"
+    container_name = "app"
     container_port = 3000
   }
   lifecycle { ignore_changes = ["task_definition"] }
