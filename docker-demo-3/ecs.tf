@@ -18,6 +18,9 @@ resource "aws_autoscaling_group" "ecs-example-autoscaling" {
   launch_configuration = "${aws_launch_configuration.ecs-example-launchconfig.name}"
   min_size             = 1
   max_size             = 1
+  lifecycle {
+    create_before_destroy = true
+  }
   tag {
       key = "Name"
       value = "ecs-ec2-container"
