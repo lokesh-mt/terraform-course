@@ -6,3 +6,4 @@
 */configureAWSCredentials.sh
 */jenkins
 */jenkinsJob.groovy
+*/jenkinsSeedJob.groovy

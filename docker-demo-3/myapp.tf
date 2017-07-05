@@ -23,7 +23,7 @@ resource "aws_ecs_service" "myapp-service" {
   load_balancer {
     elb_name = "${aws_elb.myapp-elb.name}"
     container_name = "myapp"
-    container_port = 3000
+    container_port = 8888
   }
   lifecycle { ignore_changes = ["task_definition"] }
 }
@@ -33,7 +33,7 @@ resource "aws_elb" "myapp-elb" {
   name = "myapp-elb"
 
   listener {
-    instance_port = 3000
+    instance_port = 8888
     instance_protocol = "http"
     lb_port = 80
     lb_protocol = "http"
@@ -43,7 +43,7 @@ resource "aws_elb" "myapp-elb" {
     healthy_threshold = 3
     unhealthy_threshold = 3
     timeout = 30
-    target = "HTTP:3000/"
+    target = "HTTP:8888/"
     interval = 60
   }
 
